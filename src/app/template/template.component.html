@@ -1,0 +1,82 @@
+<ng-container *ngIf="!estaLogando" ng-app="backend">
+  <div class="cadastro">
+    <div class="conteudo-cadastro">
+      <form [formGroup]="formulario">
+        <div class="caixa-input" [ngClass]="aplicaCssErro('email')">
+          <label for="email">E-mail:</label>
+          <input
+            type="email"
+            placeholder="Ex.: seuemail@email.com"
+            formControlName="email"
+            id="email"
+          />
+        </div>
+
+        <div class="caixa-input">
+          <label for="senha">Senha:</label>
+          <input type="password" placeholder="Ex.: 123" formControlName="senha" id="senha" />
+        </div>
+
+        <div class="caixa-input">
+          <label for="senha-confirmar">Confirmar senha:</label>
+          <input
+            type="password"
+            placeholder="Ex.: 123"
+            formControlName="senhaConfirmar"
+            id="senha-confirmar"
+          />
+        </div>
+
+        <button type="button" class="botao-troca">Cadastrar</button>
+        <div class="botao">
+          <label>Já tem uma conta ?</label>
+          <button
+            type="button"
+            style="margin-left: -7px"
+            class="botao-cadastro"
+            (click)="TrocaBox()"
+          >
+            Entrar
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <div class="futer">
+      <img src="../assets/img/homer.png" />
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="estaLogando">
+  <div class="entrar">
+    <div class="conteudo-cadastro">
+      <form [formGroup]="formulario">
+        <div class="caixa-input">
+          <label for="email">E-mail:</label>
+          <input
+            type="email"
+            formControlName="email"
+            placeholder="Ex.: seuemail@email.com"
+            id="email"
+          />
+        </div>
+
+        <div class="caixa-input">
+          <label for="senha">Senha:</label>
+          <input type="password" formControlName="senha" placeholder="Ex.: 123" id="senha" />
+        </div>
+
+        <button type="button" class="botao-troca">Logar</button>
+
+        <div class="botao">
+          <label>Não tem uma conta ?</label>
+          <button type="button" class="botao-cadastro" (click)="TrocaBox()">Crie uma!</button>
+        </div>
+      </form>
+    </div>
+    <div class="futer">
+      <img src="../assets/img/homer.png" />
+    </div>
+  </div>
+</ng-container>
